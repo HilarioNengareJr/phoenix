@@ -7,7 +7,7 @@
  * Node modules
  */
 
-import { Link } from 'react-router-dom';
+import { Link, Form } from 'react-router-dom';
 
 /**
  * Custom Modules
@@ -19,6 +19,8 @@ import { logoLight, logoDark } from '../assets/assets';
  */
 
 import PageTitle from '../components/PageTitle';
+import TextField from '../components/TextField';
+
 
 
 const Register = () => {
@@ -34,7 +36,18 @@ const Register = () => {
 
                     <div className=''>
                         <div className=''>
-                            Create an account
+                            <h2 className=''>
+                                Create an account
+                                </h2>
+                                <p className=''>
+                                    Register today and gain access to powerful tools that will supercharge your ideas.
+                                </p>
+
+                                <Form method='POST' className=''>
+                                    <TextField type='text' name='name' label='Full name' placeholder='Full name' required={true} autoFocus={true} />
+                                    <TextField type='email' name='email' label='Email' placeholder='Email' required={true} />
+                                    <TextField type='password' name='password' label='Password' placeholder='Enter your password' required={true} />
+                                </Form>
                         </div>
                     </div>
                 </div>
