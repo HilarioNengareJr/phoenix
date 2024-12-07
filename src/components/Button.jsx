@@ -20,9 +20,20 @@ const Button = ({
     children,
     ...rest
 }) => {
-    <button className={`btn ${variant} ${color}`} {...rest}>
+    return (
+        <button className={`btn ${variant} ${color} ${classes}`}  {...rest}>
         {children}
 
         <div className="state-layer"></div>
     </button>
+    );
 }
+
+Button.propTypes = {
+    classes: PropTypes.string,
+    variant: PropTypes.string,
+    color: PropTypes.string,
+    children: PropTypes.any
+}
+
+export {Button};
