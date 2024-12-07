@@ -29,44 +29,43 @@ const Register = () => {
         <>
             <PageTitle title='Phoenix | Create an account' />
             <div className='relative w-screen h-dvh p-2 grid grid-cols-1 lg:grid-cols-[1fr, 1.2fr] lg:gap-2'>
-                <div className=''>
-                    <Link>
-                        <img src={logoLight} alt='phoenix logo' width={133} height={24} className='' />
-                        <img src={logoDark} alt='phoenix logo dark' width={133} height={24} className='' />
+                <div className='flex flex-col p-4'>
+                    <Link to='/' className='max-w-max mx-auto lg:mx-0'>
+                        <img src={logoLight} alt='phoenix logo' width={133} height={24} className='dark:hidden' />
+                        <img src={logoDark} alt='phoenix logo dark' width={133} height={24} className='hidden dark:block' />
                     </Link>
 
-                    <div className=''>
-                        <div className=''>
-                            <h2 className=''>
-                                Create an account
-                            </h2>
-                            <p className=''>
-                                Register today and gain access to powerful tools that will supercharge your ideas.
-                            </p>
+                    <div className='flex flex-col gap-2 max-w-[480px] w-full mx-auto'>
 
-                            <Form method='POST' className=''>
-                                <TextField type='text' name='name' label='Full name' placeholder='Full name' required={true} autoFocus={true} />
-                                <TextField type='email' name='email' label='Email' placeholder='Email' required={true} />
-                                <TextField type='password' name='password' label='Password' placeholder='Enter your password' required={true} />
-                                <Button type='submit'>
-                                    Create account
-                                </Button>
-                            </Form>
+                        <h2 className='text-displaySmall font-semibold text-light-onBackground dark:text-dark-onBackground text-center'>
+                            Create an account
+                        </h2>
+                        <p className='text-bodyLarge text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant mt-1 mb-5 text-center px-2'>
+                            Register today and gain access to powerful tools that will supercharge your ideas.
+                        </p>
 
-                            <p className=''>
-                                Already have an account ?
-                                <Link to='/login' className=''>
+                        <Form method='POST' className='grid grid-cols-1 gap-4'>
+                            <TextField type='text' name='name' label='Full name' placeholder='Full name' required={true} autoFocus={true} />
+                            <TextField type='email' name='email' label='Email' placeholder='Email' required={true} />
+                            <TextField type='password' name='password' label='Password' placeholder='Enter your password' required={true} />
+                            <Button type='submit'>
+                                Create account
+                            </Button>
+                        </Form>
+
+                        <p className=''>
+                            Already have an account ?
+                            <Link to='/login' className=''>
                                 Sign in
-                                </Link>
-                            </p>
-                        </div>
+                            </Link>
+                        </p>
                     </div>
 
                     <p className=''>
                         &copy; 2024 Hilario Junior Nengare. All rights reserved.
                     </p>
                 </div>
-                
+
                 <div className=''>
                     <img src={banner} alt='' className='' />
                     <p className='img-cover'>
