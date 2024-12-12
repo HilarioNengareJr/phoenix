@@ -30,7 +30,7 @@ const Register = () => {
             <PageTitle title='Phoenix | Create an account' />
             <div className='relative w-screen h-dvh p-2 grid grid-cols-1 lg:grid-cols-[1fr, 1.2fr] lg:gap-2'>
                 <div className='flex flex-col p-4'>
-                    <Link to='/' className='max-w-max mx-auto lg:mx-0'>
+                    <Link to='/' className='max-w-max mb-auto mx-auto lg:mx-0'>
                         <img src={logoLight} alt='phoenix logo' width={133} height={24} className='dark:hidden' />
                         <img src={logoDark} alt='phoenix logo dark' width={133} height={24} className='hidden dark:block' />
                     </Link>
@@ -53,22 +53,22 @@ const Register = () => {
                             </Button>
                         </Form>
 
-                        <p className=''>
+                        <p className='text-bodyMedium text-light-onSurfaceVariant text-center mt-4'>
                             Already have an account ?
-                            <Link to='/login' className=''>
+                            <Link to='/login' className='link inline-block ms-1 text-light-onSurface dark:text-dark-onSurface'>
                                 Sign in
                             </Link>
                         </p>
                     </div>
 
-                    <p className=''>
+                    <p className='mt-auto mx-auto text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant text-bodyMedium lg:mx-0'>
                         &copy; 2024 Hilario Junior Nengare. All rights reserved.
                     </p>
                 </div>
 
-                <div className=''>
-                    <img src={banner} alt='' className='' />
-                    <p className='img-cover'>
+                <div className='hidden img-box lg:block lg:relative lg:rounded-large'>
+                    <img src={banner} alt='' className='img-cover' />
+                    <p className='absolute bottom-10 left-10 right-10 z-10 text-displayLarge font-semibold leading-tight text-right text-light-onSurface drop-shadow-sm 2xl-sm[72px]'>
                         Chat with Phoenix to supercharge your ideas.
                     </p>
                 </div>
