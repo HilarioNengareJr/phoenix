@@ -7,7 +7,7 @@
  * Node modules
  */
 
-import { Link, Form } from 'react-router-dom';
+import { Link, Form, useNavigation } from 'react-router-dom';
 
 /**
  * Custom Modules
@@ -25,6 +25,8 @@ import { Button } from '../components/Button';
 
 
 const Register = () => {
+
+    
     return (
         <>
             <PageTitle title='Phoenix | Create an account' />
@@ -66,7 +68,7 @@ const Register = () => {
                     </p>
                 </div>
 
-                <div className='hidden img-box lg:block lg:relative lg:rounded-large'>
+                <div className='hidden img-box h-dvh lg:block lg:relative lg:rounded-large'>
                     <img src={banner} alt='' className='img-cover' />
                     <p className='absolute bottom-10 left-10 right-10 z-10 text-displayLarge font-semibold leading-tight text-right text-light-onSurface drop-shadow-sm 2xl-sm[72px]'>
                         Chat with Phoenix to supercharge your ideas.

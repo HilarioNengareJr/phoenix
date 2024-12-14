@@ -35,9 +35,10 @@ const registerAction = async ({ request }) => {
         await account.createEmailPasswordSession(formData.get('email'), formData.get('password'))
     } catch (err){
         console.log(`Error creating email session: ${err.message}`);
+        return redirect('/login');
     }
 
-    return null;
+    return redirect('/');
 }
 
 export default registerAction;
