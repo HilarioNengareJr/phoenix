@@ -7,13 +7,15 @@
  * Node modules
  */
 
-import { Link, Form, useNavigation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, Form, useNavigation, useActionData } from 'react-router-dom';
 
 /**
  * Custom Modules
  */
 
 import { logoLight, logoDark, banner } from '../assets/assets';
+
 /**
  * Components
  */
@@ -21,12 +23,20 @@ import { logoLight, logoDark, banner } from '../assets/assets';
 import PageTitle from '../components/PageTitle';
 import TextField from '../components/TextField';
 import { Button } from '../components/Button';
+import { CircularProgress } from './Project';
 
 
 
 const Register = () => {
 
-    
+    const error = useActionData();
+
+    const navigation = new useNavigation();
+
+    useEffect(() => {
+        
+    }, []);
+
     return (
         <>
             <PageTitle title='Phoenix | Create an account' />
@@ -50,8 +60,8 @@ const Register = () => {
                             <TextField type='text' name='name' label='Full name' placeholder='Full name' required={true} autoFocus={true} />
                             <TextField type='email' name='email' label='Email' placeholder='Email' required={true} />
                             <TextField type='password' name='password' label='Password' placeholder='Enter your password' required={true} />
-                            <Button type='submit'>
-                                Create account
+                            <Button type='submit' disabled={navigation.state === 'submitting'}>
+                                {navigation.state === 'submitting' ? (<CircularProgress size='small' />) : ('Create account')}
                             </Button>
                         </Form>
 

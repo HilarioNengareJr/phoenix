@@ -182,6 +182,26 @@
     hover:dark:text-dark-primary
     hover:underline;
   }
+
+  /**
+  * Progress Bar
+  */
+
+  .circular-progress {
+    @apply border-4
+    border-current
+    dark:border-r-transparent
+    w-12
+    h-12
+    rounded-full
+    animate-spin; 
+  }
+
+  .circular-progress.small {
+    @apply border-[3px]
+    w-5
+    h-5;
+  }
 }
 
 
