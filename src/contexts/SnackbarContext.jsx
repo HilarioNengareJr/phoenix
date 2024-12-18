@@ -64,12 +64,6 @@ const SnackbarProvider = ({ children }) => {
         return { snackbar, showSnackbar, hideSnackbar };
     }, [snackbar, showSnackbar, hideSnackbar]);
 
-    // hide snackbar manually
-    const hideSnackbar = useCallback(() => {
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-        setSnackbar({ open: false, message: '', type: 'info' });
-    }, []);
-
     return (
         <SnackbarContext.Provider value={contextValue}>
             {children}

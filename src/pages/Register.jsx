@@ -11,15 +11,19 @@ import { useEffect } from 'react';
 import { Link, Form, useNavigation, useActionData } from 'react-router-dom';
 
 /**
- * Custom Modules
+ * Assets
  */
-
 import { logoLight, logoDark, banner } from '../assets/assets';
+
+
+/**
+ * Custom Hooks
+ */
+import { useSnackbar } from '../hooks/useSnackbar';
 
 /**
  * Components
  */
-
 import PageTitle from '../components/PageTitle';
 import TextField from '../components/TextField';
 import { Button } from '../components/Button';
@@ -33,9 +37,14 @@ const Register = () => {
 
     const navigation = new useNavigation();
 
+    const { showSnackbar } = useSnackbar();
+
     useEffect(() => {
-        
-    }, []);
+        // show snackbar with error message
+        if(error?.message){
+            showSnackbar({ message: error.message, type: 'error'});
+        }
+    }, [error, showSnackbar]);
 
     return (
         <>

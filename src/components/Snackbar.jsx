@@ -3,10 +3,12 @@
  * @license Apache-2.0
  */
 
+
 /**
  * Node modules
  */
 import PropTypes from 'prop-types';
+
 
 const Snackbar = ({ snackbar }) => {
     return (
