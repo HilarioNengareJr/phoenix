@@ -42,7 +42,7 @@ const Register = () => {
     useEffect(() => {
         // show snackbar with error message
         if(error?.message){
-            showSnackbar({ message: error.message, type: 'error'});
+            showSnackbar({ message: error.message, type: 'error',});
         }
     }, [error, showSnackbar]);
 
