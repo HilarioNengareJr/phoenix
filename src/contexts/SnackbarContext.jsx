@@ -3,13 +3,18 @@
  * @license Apache-2.0
  */
 
-
 /**
  * Node modules
  */
 
 import { createContext, useState, useRef, useCallback, useMemo } from "react";
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"; 
+
+/**
+ * Components
+ */
+
+import Snackbar from "../components/Snackbar";
 
 const initialCTxVAlue = {
     snackbar: {
@@ -17,9 +22,8 @@ const initialCTxVAlue = {
         message: '',
         type: 'info',
     },
-
-    showSnackbar: ({message, type='info', timeout=5000}) => {},
-    hideSnackbar: () => {},
+    showSnackbar: ({ message, type = 'info', timeout = 5000 }) => { },
+    hideSnackbar: () => { },
 }
 
 export const SnackbarContext = createContext(initialCTxVAlue);
@@ -35,7 +39,7 @@ const SnackbarProvider = ({ children }) => {
     const timeoutRef = useRef();
 
     // show Snackbar
-    const showSnackbar = useCallback(({ message, type = 'info', timeOut = 5000}) => {
+    const showSnackbar = useCallback(({ message, type = 'info', timeOut = 5000 }) => {
         // clear any existing timeout to prevent overlap
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
@@ -44,18 +48,33 @@ const SnackbarProvider = ({ children }) => {
 
         // auto-hide the snackbar after timeout
         timeoutRef.current = setTimeout(() => {
-            
-        })
-    });
+            setSnackbar((prev) => {
+                return { ...prev, open: false };
+            });
+        }, timeOut);
+    }, []);
 
-    // Memoize the context value to prevent the unnecessary re-renders
+    // hide Snackbar
+    const hideSnackbar = useCallback(() => {
+        setSnackbar((prev) => ({ ...prev, open: false }));
+    }, []);
+
+    // Memoize the context value to prevent unnecessary re-renders
     const contextValue = useMemo(() => {
-        return { showSnackbar, hideSnackbar}
-    }, [showSnackbar, hideSnackbar]);
+        return { snackbar, showSnackbar, hideSnackbar };
+    }, [snackbar, showSnackbar, hideSnackbar]);
+
+    // hide snackbar manually
+    const hideSnackbar = useCallback(() => {
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        setSnackbar({ open: false, message: '', type: 'info' });
+    }, []);
 
     return (
         <SnackbarContext.Provider value={contextValue}>
-            { children }
+            {children}
+
+            <Snackbar snackbar={snackbar}/>
         </SnackbarContext.Provider>
     );
 }
@@ -64,4 +83,4 @@ SnackbarProvider.propTypes = {
     children: PropTypes.any,
 };
 
-export default SnackbarProvider
+export default SnackbarProvider;
