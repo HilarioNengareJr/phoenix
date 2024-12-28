@@ -23,6 +23,11 @@ const Snackbar = ({ snackbar }) => {
         }
     }
 
+    const snackbarChildVariant = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 }
+    }
+
     return (
         <>
             {snackbar.open && (
@@ -30,7 +35,8 @@ const Snackbar = ({ snackbar }) => {
                 initial='hidden'
                 animate='visible'
                 className={`snackbar &{snackbar.type}`}>
-                    <motion.span>
+                    <motion.span variants={snackbarChildVariant}>
+                        transition={{ duration:0.2, delay: 0.1}, ease: 'easeOut'}
                         {snackbar.message}
                     </motion.span>
                 </motion.div>
