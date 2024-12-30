@@ -203,9 +203,21 @@
     h-5;
   }
 
-  /**
-  * FIX Snackbar
-  */
+  .linear-progress {
+    @apply h-1
+    bg-light-secondaryContainer
+    dark:bg-dark-secondaryContainer
+    rounded-full
+    mx-1
+    overflow-hidden
+    origin-top;
+  }
+
+  .linear-progress .active-indicator {
+    @apply h-[inherit]
+    b;
+  }
+
   .snackbar {
     @apply fixed
     bottom-4
@@ -242,6 +254,7 @@
     text-light-onErrorContainer;
   }
 }
+
 
 
 /**

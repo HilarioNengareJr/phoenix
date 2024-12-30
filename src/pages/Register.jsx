@@ -19,7 +19,7 @@ import { logoLight, logoDark, banner } from '../assets/assets';
 /**
  * Custom Hooks
  */
-import { useSnackbar } from '../hooks/useSnackbar';
+import { useSnackbar } from '../lib/hooks/useSnackbar';
 
 /**
  * Components
@@ -27,7 +27,7 @@ import { useSnackbar } from '../hooks/useSnackbar';
 import PageTitle from '../components/PageTitle';
 import TextField from '../components/TextField';
 import { Button } from '../components/Button';
-import { CircularProgress } from './Project';
+import { CircularProgress } from '../components/Progress';
 
 
 
@@ -94,6 +94,8 @@ const Register = () => {
                     </p>
                 </div>
             </div>
+
+            <LinearProgress classes="absolute top-0 left-0 right-0"/>
         </>
     );
 }

@@ -27,4 +27,22 @@ CircularProgress.propTypes = {
     size: PropTypes.string,
 };
 
-export { CircularProgress };
+/***
+ * Linear Progress
+ */
+
+const LinearProgress = ({classes = ''}) => {
+    return (
+        <div className = {`linear-progress ${classes}`}>
+            <div className="active-indicator">
+                
+            </div>
+        </div>
+    );
+}
+
+LinearProgress.propTypes = {
+    classes: PropTypes.string,
+}
+
+export { CircularProgress, LinearProgress };

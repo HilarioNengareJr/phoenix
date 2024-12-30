@@ -3,12 +3,11 @@
  * @license Apache-2.0
  */
 
-
 /**
  * Node modules
  */
 import PropTypes from 'prop-types';
-import  { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Snackbar = ({ snackbar }) => {    
 
@@ -29,25 +28,35 @@ const Snackbar = ({ snackbar }) => {
     }
 
     return (
-        <>
+        <AnimatePresence>
             {snackbar.open && (
-                <motion.div variants={snackbarVariant} 
-                initial='hidden'
-                animate='visible'
-                className={`snackbar &{snackbar.type}`}>
-                    <motion.span variants={snackbarChildVariant}>
-                        transition={{ duration:0.2, delay: 0.1}, ease: 'easeOut'}
+                <motion.div 
+                    variants={snackbarVariant} 
+                    initial='hidden'
+                    animate='visible'
+                    exit={{
+                        opacity: 0,
+                        transition: {
+                            duration: 0.15,
+                            ease: 'easeOut',
+                        }
+                    }}
+                    className={`snackbar ${snackbar.type}`}
+                >
+                    <motion.span 
+                        variants={snackbarChildVariant}
+                        transition={{ duration: 0.2, delay: 0.1, ease: 'easeOut' }}
+                    >
                         {snackbar.message}
                     </motion.span>
                 </motion.div>
             )}
-        </>
+        </AnimatePresence>
     )
 }
 
-Snackbar.PropTypes = {
+Snackbar.propTypes = {
     snackbar: PropTypes.object,
 }
 
 export default Snackbar;
-
